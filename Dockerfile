@@ -11,10 +11,10 @@ VOLUME /tmp
 EXPOSE 8080
 
 # 현재 JAR 파일 변수 설정
-ARG JAR_FILE=target/k8s-demo-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=target/*.jar
 
-# demo.jar의 이름으로 JAR 파일 추가
-ADD ${JAR_FILE} demo.jar
+# demo.jar의 이름으로 JAR 파일 복사
+COPY ${JAR_FILE} demo.jar
 
 # 컨테이너 실행 시 실행될 명령어 "java -jar demo.jar"
-ENTRYPOINT ["java", "-jar", "demo.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/demo.jar"]
