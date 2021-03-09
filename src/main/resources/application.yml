@@ -1,2 +1,15 @@
 server:
   port: 8080
+
+spring:
+  application:
+    name: k8s-demo
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "prometheus"
+      base-path: /application
+  metrics:
+    tags:
+      application: ${spring.application.name} # prometheus label 에 추가됨
