@@ -3,13 +3,21 @@ server:
 
 spring:
   application:
-    name: k8s-demo
+    name: prometheus-demo-server
 management:
+  endpoint:
+    prometheus:
+      enabled: true
+    metrics:
+      enabled: true
   endpoints:
     web:
       exposure:
-        include: "prometheus"
-      base-path: /application
+        include: prometheus,health,info
+#      base-path: /application
   metrics:
     tags:
       application: ${spring.application.name} # prometheus label 에 추가됨
+    export:
+      prometheus:
+        enabled: true
