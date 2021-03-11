@@ -28,6 +28,8 @@ public class TestK8sController {
         promGuage.inc();
         histogram.observe(1.0f);
         return "demo";
+    String hello() {
+        return "HELLO KUBE"; // feature -> develop -> release Finish
     }
 
 }
