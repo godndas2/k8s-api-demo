@@ -8,7 +8,7 @@ public class TestK8sController {
 
     @GetMapping
     String hello() {
-        return "HELLO KUBE";
+        return "HELLO KUBE"; // gitflow example
     }
 
 }
