@@ -38,3 +38,6 @@ COPY ${JAR_FILE} demo.jar
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/demo.jar"]
 ```
 
+## Push the Docker Container to Docker Hub
+-  docker push huhyun/k8s-demo
+
