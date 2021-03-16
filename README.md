@@ -39,5 +39,66 @@ ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/demo.jar"]
 ```
 
 ## Push the Docker Container to Docker Hub
--  docker push huhyun/k8s-demo
+-  docker push huhyun/k8s-demo  
+
+# Deploy the App to k8s
+
+## yaml
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: demo
+  name: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: demo
+    spec:
+      containers:
+        - image: huhyun/k8s-demo:demo
+          name: k8s-beginner
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: demo
+  name: demo
+spec:
+  ports:
+    - name: svc-8080
+      port: 8080
+      protocol: TCP
+      nodePort: 31111
+      targetPort: 8080
+  selector:
+    app: demo
+  type: NodePort
+```
+
+## yaml deploy
+- kubectl apply -f demo.yaml  
+
+## Check for the pods
+- kubectl get pod -A
+
+## Expose
+- kubectl expose deployment k8s-demo --type=LoadBalancer --name=k8s-demo --port=8080  
+
+## check the external IP
+- kubectl get svc k8s-demo  
+- <EXTERNAL_IP>:8080
+
+
+
+
+
 
