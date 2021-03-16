@@ -12,7 +12,6 @@
     <artifactId>k8s-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>k8s-demo</name>
-    <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -22,17 +21,6 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -55,36 +43,7 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
             <version>2.4.3</version>
         </dependency>
-        <!-- Micormeter core dependecy  -->
-        <dependency>
-            <groupId>io.micrometer</groupId>
-            <artifactId>micrometer-core</artifactId>
-        </dependency>
-        <!-- Micrometer Prometheus registry  -->
-        <dependency>
-            <groupId>io.micrometer</groupId>
-            <artifactId>micrometer-registry-prometheus</artifactId>
-        </dependency>
 
-        <!-- Metric Custom Dependency -->
-        <!-- The client -->
-<!--        <dependency>-->
-<!--            <groupId>io.prometheus</groupId>-->
-<!--            <artifactId>simpleclient</artifactId>-->
-<!--            <version>0.6.0</version>-->
-<!--        </dependency>-->
-<!--        &lt;!&ndash; Hotspot JVM metrics&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>io.prometheus</groupId>-->
-<!--            <artifactId>simpleclient_hotspot</artifactId>-->
-<!--            <version>0.6.0</version>-->
-<!--        </dependency>-->
-<!--        &lt;!&ndash; Exposition HTTPServer&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>io.prometheus</groupId>-->
-<!--            <artifactId>simpleclient_httpserver</artifactId>-->
-<!--            <version>0.6.0</version>-->
-<!--        </dependency>-->
     </dependencies>
 
     <build>
