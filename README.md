@@ -49,29 +49,29 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: demo
-  name: demo
+    app: k8s-demo
+  name: k8s-demo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: demo
+      app: k8s-demo
   strategy: {}
   template:
     metadata:
       labels:
-        app: demo
+        app: k8s-demo
     spec:
       containers:
-        - image: huhyun/k8s-demo:demo
+        - image: huhyun/k8s-demo:0.1
           name: k8s-beginner
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: demo
-  name: demo
+    app: k8s-demo
+  name: k8s-demo
 spec:
   ports:
     - name: svc-8080
@@ -80,7 +80,7 @@ spec:
       nodePort: 31111
       targetPort: 8080
   selector:
-    app: demo
+    app: k8s-demo
   type: NodePort
 ```
 
