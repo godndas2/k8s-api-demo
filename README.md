@@ -97,6 +97,55 @@ spec:
 - kubectl get svc k8s-demo  
 - <EXTERNAL_IP>:8080
 
+# Prometheus server
+
+Pushgateway를 통해 platfrom내 각종 Resources 의 metric 을 pulling 하고, alertmanager 통해 다른 channel에 notification 하거나 Grafana와 같은 monitoring tool 에 수집한 metric을 전달해 시각화함
+
+# Helm Install
+
+```docker
+$ wget https://get.helm.sh/helm-v3.0.0-linux-amd64.tar.gz
+$ tar -zxvf helm-v3.0.0-linux-amd64.tar.gz
+```
+# Prometheus Install
+
+```docker
+$ helm install prometheus prometheus-community/prometheus
+$ kubectl get pod {POD_NAME}
+
+// chart customizing
+$ helm install -f config.yaml prometheus-community/prometheus
+```
+
+PersistenctVolume의 enabled 들을 false 로 바꿔준다.
+![image](https://user-images.githubusercontent.com/34512538/111580057-586c5300-87fa-11eb-8d3f-5d75d745ee9a.png)
+
+
+ClusterIP 에서 NodePort로 변경해준다.
+
+```docker
+$ kubectl edit svc {SERVICE_NAME}
+```
+![image](https://user-images.githubusercontent.com/34512538/111580140-70dc6d80-87fa-11eb-83c8-7893cdbffedd.png)
+
+## Prometheus Access
+```
+$ curl <prometheus-server_ip:port>
+```
+## AlertManager Access
+```
+$ curl <alertManager:port>
+```
+
+# Grafana Install
+
+```yaml
+$ helm repo install grafana https://grafana.github.io/helm-charts
+```
+
+## springboot applicatoin pod
+![image](https://user-images.githubusercontent.com/34512538/111579914-2c50d200-87fa-11eb-9e88-48f2c3f3cac0.png)
+
 
 
 
