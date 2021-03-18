@@ -14,7 +14,6 @@ management:
     web:
       exposure:
         include: prometheus,health,info
-#      base-path: /application
   metrics:
     tags:
       application: ${spring.application.name} # prometheus label 에 추가됨
