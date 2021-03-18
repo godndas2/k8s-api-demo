@@ -117,11 +117,11 @@ $ kubectl get pod {POD_NAME}
 $ helm install -f config.yaml prometheus-community/prometheus
 ```
 
-PersistenctVolume의 enabled 들을 false 로 바꿔준다.
-![image](https://user-images.githubusercontent.com/34512538/111580057-586c5300-87fa-11eb-8d3f-5d75d745ee9a.png)
+PersistenctVolume의 enabled 들을 false 로 바꿔준다.  
+![image](https://user-images.githubusercontent.com/34512538/111580057-586c5300-87fa-11eb-8d3f-5d75d745ee9a.png)  
 
 
-ClusterIP 에서 NodePort로 변경해준다.
+ClusterIP 에서 NodePort로 변경해준다.  
 
 ```docker
 $ kubectl edit svc {SERVICE_NAME}
